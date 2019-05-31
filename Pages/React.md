@@ -10,3 +10,6 @@ The patterns are here to help resolve 3 common situations:
 ## Fetching Data
 
 ## Managing State
+
+## Authentication
+## HOC
