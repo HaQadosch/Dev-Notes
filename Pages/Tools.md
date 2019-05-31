@@ -32,7 +32,7 @@
 * Set up to format the code before comitting.
 * The linter in your local machine is up to you as long as the code in git is prettified.
 
-```
+``` 
 npm i create-react-app
 npx create-react-app my-little-pony-app --typescript
 ```
@@ -71,7 +71,7 @@ npm i prettier pretty-quick husky -D
 
 To prettify only the stagged files, add to the package.json of your cra project
 
-```
+``` JS
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
@@ -84,7 +84,7 @@ To prettify only the stagged files, add to the package.json of your cra project
 * The style should be the same throughout the repo.
 * Add the snippet below to the package.json file of your cra project
 
-```
+``` JS
   "prettier": {
     "printWidth": 120,
     "singleQuote": true,

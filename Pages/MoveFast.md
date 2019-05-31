@@ -35,7 +35,7 @@ Switching contexts costs a lot of non productive time.
   * Configure post-checkout hooks to install the node_module if it is missing
   * Same for post-merge and post-rebase hooks
 
-```
+``` JS
 hooks: {
   'post-checkout': `if [[ $HUSKY_GIT_PARAMS =~ l$ ]]; then npm install; fi `; // Only call install if you co a branch.
   'post-merge': 'npm install';
@@ -47,7 +47,7 @@ hooks: {
 
 ### Break down your build and detect the culprits
 
-```
+``` 
 node --inspect-brk node_modules/.bin/webpack --config configs/webpack.web.js
 ```
 It helps detect slow tools. 
@@ -81,7 +81,8 @@ https://buildtracker.dev/
   * Sentry or equivalent. Pops message into slack.
   * React.strict
   * Error.boundaries
-```
+
+``` JS
 class ErrorBoundary extends React.Component {
   componentDidCactch (error, info) {
     logErrorToMyReportService(error, extradata, info)
