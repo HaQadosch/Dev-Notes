@@ -39,6 +39,18 @@ npx create-react-app my-little-pony-app --typescript
 
 ## Folder Structure:
 
+```
+ my-little-pony-app
+ ↳ src
+  ↳ components
+    ↳ App.tsx
+    ↳ App.css
+  ↳ __tests__
+    ↳ App.test.tsx
+  ↳ storybook
+    ↳ App.story.tsx
+
+```
 All the tests in the src/__test__ folder
 
 All the components in the src/Components folder
