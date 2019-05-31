@@ -37,6 +37,13 @@ npm i create-react-app
 npx create-react-app my-little-pony-app --typescript
 ```
 
+## Design system: Storybook
+
+  * Most used in modern framework communities
+  * Tend to integrate all the features of the other design tools
+  * Integrate well with jest for snapshot testing
+  * Plugin for a11y
+
 ## Folder Structure:
 
 ```
