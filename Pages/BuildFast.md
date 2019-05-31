@@ -44,16 +44,13 @@ npx create-react-app my-little-pony-app --typescript
  ↳ src
   ↳ components
     ↳ App.tsx
-    ↳ App.css
+    ↳ App.css // The css files stay close to the component their attached to.
   ↳ __tests__
-    ↳ App.test.tsx
+    ↳ App.test.tsx // The tests follow the convention by Jest.
   ↳ storybook
-    ↳ App.story.tsx
+    ↳ App.story.tsx // Same for the stories.
 
 ```
-All the tests in the src/__test__ folder
-
-All the components in the src/Components folder
 
 ## Pre-commit hook:
 
