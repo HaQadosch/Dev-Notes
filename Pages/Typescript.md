@@ -24,3 +24,5 @@ Specify function signatures explicitly, e.g. for event handlers:
 
 It's better to use `React.EventHandler<T>` type and its specializations like `MouseEventHandler`, `PointerEventHandler` and so on.
 
+# links
+https://basarat.gitbooks.io/typescript/content/docs/jsx/react.html
