@@ -1,4 +1,4 @@
-# or rather e2e tests
+# e2e tests
 
 ## Using Aria best practices
 

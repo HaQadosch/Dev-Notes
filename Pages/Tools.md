@@ -1,3 +1,5 @@
+# Tools and Boilerplate
+
 # Setting up a project with React
 
 > This is a series of recommendations. They’re more what you’d call guidelines than actual rules.

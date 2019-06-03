@@ -1,3 +1,5 @@
+# Storybook
+
 # Categorising Storybook Stories
 Once you've added a few stories, you start wishing for a way to categorise these into relevant groupings.
 ``` javascript

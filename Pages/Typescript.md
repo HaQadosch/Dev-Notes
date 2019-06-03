@@ -1,3 +1,5 @@
+# Typescript
+
 # Only allow specific keys on an object
 
 ``` typescript
