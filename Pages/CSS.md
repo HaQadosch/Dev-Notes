@@ -3,6 +3,7 @@
 ## format
 
 The order of the element should be like the below:
+
   1. Box (position, display, width, margin, etc.)
   2. Text
   3. Background
