@@ -39,6 +39,15 @@ If the container is `main`
 ```
 is all you need as `main` is a block element.
 
+Within a grid cell
+``` css
+constainer {
+  align-items: center;
+  justify-content: center;
+}
+```
+
+
 ## Display: block
 
 ## Display: flex
