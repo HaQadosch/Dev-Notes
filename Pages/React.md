@@ -72,3 +72,8 @@ const CustomRoute = ({ component: Component, ...rest }: ICustomRoute) => (
 
 ## Authentication
 ## HOC
+
+# Passing data around
+## Prop drilling
+## Redux
+## Context API
