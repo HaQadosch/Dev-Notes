@@ -1,5 +1,15 @@
 # CSS
 
+## format
+
+The order of the element should be like the below:
+
+  1. Box (position, display, width, margin, etc.)
+  2. Text
+  3. Background
+  4. Border
+  5. Other (Alphabetically)
+
 # Minimal setting
 This setting is the minimal way to look good in all screens
 ``` css
@@ -29,6 +39,15 @@ If the container is `main`
 
 ```
 is all you need as `main` is a block element.
+
+Within a grid cell
+``` css
+constainer {
+  align-items: center;
+  justify-content: center;
+}
+```
+
 
 ## Display: block
 
