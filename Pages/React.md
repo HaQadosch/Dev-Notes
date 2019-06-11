@@ -68,7 +68,7 @@ const CustomRoute = ({ component: Component, ...rest }: ICustomRoute) => (
 
 ## Fetching Data
 
-```javascript
+```jsx
 import React, { useEffect, useState } from 'react';
 
 export function Posts() {
@@ -103,6 +103,7 @@ export function Posts() {
 }
 ```
 
+
 ## Managing State
 
 ## Authentication
@@ -112,3 +113,20 @@ export function Posts() {
 ## Prop drilling
 ## Redux
 ## Context API
+
+
+## Autosave
+
+```javascript
+const delay = (() => {
+  let timer = 0;
+  return (callback, ms) => {
+    clearTimeout(timer);
+    timer = setTimeout(callback, ms);
+  };
+})();
+
+```
+
+`delay` is called often, but each time it clears itself. It actually saves after 3s of non interruption.
+
