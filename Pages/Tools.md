@@ -46,6 +46,11 @@ npx create-react-app my-little-pony-app --typescript
   * Integrate well with jest for snapshot testing
   * Plugin for a11y
 
+Inside the application root folder:
+``` 
+npx -p @storybook/cli sb init
+```
+
 ## Folder Structure:
 
 ```
@@ -56,7 +61,7 @@ npx create-react-app my-little-pony-app --typescript
     ↳ App.css // The css files stay close to the component their attached to.
   ↳ __tests__
     ↳ App.test.tsx // The tests follow the convention by Jest.
-  ↳ storybook
+  ↳ stories
     ↳ App.story.tsx // Same for the stories.
 
 ```
