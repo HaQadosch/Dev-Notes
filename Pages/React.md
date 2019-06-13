@@ -106,6 +106,72 @@ export function Posts() {
 
 ## Managing State
 
+We do this via context.
+
+### context.provider
+in `State.tsx`
+
+```typescript
+mport React, { createContext, useReducer } from "react";
+
+let AppContext = createContext();
+
+const initialState = {
+  count: 0
+}
+
+let reducer = (state, action) => {
+  switch(action.type) {
+    case "SET_COUNT": {
+      return { ...state, count: action.payload }
+    }
+  }
+  return state;
+};
+
+function AppContextProvider(props) {
+  const fullInitialState = {
+    ...initialState,
+  }
+
+  let [state, dispatch] = useReducer(reducer, fullInitialState);
+  let value = { state, dispatch };
+
+
+  return (
+    <AppContext.Provider value={value}>{props.children}</AppContext.Provider>
+  );
+}
+
+let AppContextConsumer = AppContext.Consumer;
+
+export { AppContext, AppContextProvider, AppContextConsumer };
+```
+
+### context.consumer
+
+```typescript
+import React, { useContext } from 'react';
+import { IonButton } from '@ionic/react';
+import { AppContext } from '../State';
+
+export const MyComponent = () => {
+  const { state, dispatch } = useContext(AppContext);
+
+  return (
+    <div>
+      <IonButton onClick={() => dispatch({
+        type: 'SET_COUNT',
+        payload: state.count + 1
+      })}>
+        Add to Order
+      </IonButton>
+      <h2>You have {state.count} in your cart</h2>
+    </div>
+  )
+}
+```
+
 ## Authentication
 ## HOC
 
