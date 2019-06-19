@@ -63,5 +63,22 @@ Enable S3 Application build: set to true
 S3 Deployment Bucket Name Prefix: same as Project name 
 
 
+### CloudFormation Build Configuration
 
+CloudFormation Deployment template file: use `/templates/<project-name>.cf-template.yml`
+
+
+### Deployment 1 Configuration
+
+Deployment 1 config file: `/ci/PROJECT-NAME.ENV.AWS-REGION.cf-config.json` e.g. `/ci/my-project-example-dev.eu-central-1.cf-config.json`
+
+Click next
+
+## TagOptions
+
+Leave empty
+
+## Notifications
+
+Leave unchecked
 
