@@ -90,3 +90,32 @@ Well, launch.
 
 If the provision succeeded, you will see the details as outputs.
 You need to copy the URL of the code pipeline URL, e.g. https://git-codecommit.eu-central-1.amazonaws.com/v1/repos/equestria-repo 	
+
+
+# Write some code
+
+# Policies
+
+## To make the s3 bucket available to read: public access
+
+```yaml
+rWebsiteBucketPolicy:
+  Type: AWS::S3::BucketPolicy
+  Metadata:
+    cfn_nag:
+      rules_to_suppress:
+        - id: F16
+          reason: "This is a public facing S3 bucket and should be permitted."
+  Properties:
+    Bucket: !Ref rWebsiteS3Bucket
+    PolicyDocument:
+      Statement:
+        - Sid: SetupCloudFront
+          Action:
+            - s3:GetObject
+          Effect: Allow
+          Resource:
+            !Join ["", ["arn:aws:s3:::", !Ref pS3DeploymentBucketName, "/*"]]
+          Principal:
+            AWS: "*"
+```
