@@ -191,6 +191,7 @@ but decides what to render with `on` and `toggle`
   )}
 </Toggle>
 
+// Handles the logic, then calls children, from the parent component.
 const Toggle = ({ children, onToggle }) => {
   const [on, setOn] = useState(false)
 
