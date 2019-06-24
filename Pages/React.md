@@ -172,6 +172,38 @@ export const MyComponent = () => {
 }
 ```
 
+### Render Props
+
+Parent component, calls the Toggle component just to handle the states `on` and actions `toggle`
+but decides what to render with `on` and `toggle`
+
+```jsx
+<Toggle onToggle={onToggle}>
+  {({ on, toggle }) => (
+    <div>
+      {on ? 'The button is on' : 'The button is off'}
+      <Switch on={on} onClick={toggle} />
+      <hr />
+      <button aria-label='custom-button' onClick={toggle}>
+        {on ? 'on' : 'off'}
+      </button>
+    </div>
+  )}
+</Toggle>
+
+const Toggle = ({ children, onToggle }) => {
+  const [on, setOn] = useState(false)
+
+  const handleClick = () => {
+    const newOn = !on
+    onToggle(newOn)
+    setOn(newOn)
+  }
+
+  return children({ on, toggle: handleClick })
+}
+```
+
 ## Authentication
 ## HOC
 
