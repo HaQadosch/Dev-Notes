@@ -69,6 +69,7 @@ Storybook example: http://react.carbondesignsystem.com/?path=/story/buttons--def
 > npx plop rcts MyComp // no npm
 ```
 
+Get saml-auth at https://foresttechnologies.atlassian.net/wiki/spaces/AWS/pages/1429307518/ECS+AWS+SAML+API+Authentication+Tool
 Activate your samlauth and push
 ```bash
 > cd ~ && ./saml_aws_auth.pex 
@@ -90,13 +91,11 @@ Go to AWS Pipeline and look at the build.
 
 Inside the file
 ```json
-    "pKeyPrefix": "/ecs-cx-skeleton-s3-s3-build-dev/",
-    "pKeyPrefixEquals": "/ecs-cx-skeleton-s3-s3-build-dev/.dist/",
+    "pS3WebsiteHomePath": "/ecs-cx-skeleton-s3-s3-build-dev/",
 ```
 Replace with
 ```json
-    "pKeyPrefix": "/my-project-s3-build-dev/",
-    "pKeyPrefixEquals": "/my-project-s3-build-dev/.dist/",
+    "pS3WebsiteHomePath": "/my-project-s3-build-dev/",
 ```
 
 #### CloudFormation file
