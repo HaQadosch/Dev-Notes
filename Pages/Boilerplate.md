@@ -20,6 +20,8 @@ In Parameters:
   * CloudFormation:
     * template file templates/PROJECT-NAME.cf-template.yml
     * rename the file
+  * Application Build 1 Configuration
+    * Application 1 code source filepath src/cloudfront-invalidate-cache
   * Deployment 1 Configuration:
     * config file ci/PROJECT-NAME-dev.eu-central-1.cf-config.json
     * rename the file
