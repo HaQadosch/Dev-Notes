@@ -2,14 +2,17 @@
 
 ## Quick intro
 
-Redux gives you a central place to put your states (data) for JS/TS apps. 
-It's most often used with React (via React-redux).
+``redux`` gives you a central place to put your states (data) for JS/TS apps. 
+It's most often used with React (via `react-redux`).
 This lets you access or change your state from **any** component in your tree.
+
+* `redux` gives you a store, but it doesn't know anything about React.
+* `react-redux` lets you connect pieces of the states to the React components.
 
 ![1](../assets/1.jpg "Store dictates the state of the app")
 ___
 ### Reducer
-Your state lives in a central Redux store. 
+Your state lives in a central/global Redux store. 
 That store is created with a function called a ```reducer```. 
 A reducer takes in a `state` and an `action`, and returns the same or a **new** state.
 ```js
