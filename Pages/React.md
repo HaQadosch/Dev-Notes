@@ -111,8 +111,8 @@ We do this via context.
 ### context.provider
 in `State.tsx`
 
-```typescript
-mport React, { createContext, useReducer } from "react";
+```jsx
+import React, { createContext, useReducer } from "react";
 
 let AppContext = createContext();
 
@@ -129,7 +129,7 @@ let reducer = (state, action) => {
   return state;
 };
 
-function AppContextProvider(props) {
+function AppContextProvider (props) {
   const fullInitialState = {
     ...initialState,
   }
@@ -150,7 +150,7 @@ export { AppContext, AppContextProvider, AppContextConsumer };
 
 ### context.consumer
 
-```typescript
+```jsx
 import React, { useContext } from 'react';
 import { IonButton } from '@ionic/react';
 import { AppContext } from '../State';
