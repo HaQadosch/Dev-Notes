@@ -9,3 +9,16 @@
 
 When faced with two or more alternatives that deliver roughly the same value,
 take the path that makes future change easier.
+
+# Handling errors
+
+## PID Controller
+
+Proportional Integral Derivative
+
+Determine correction to apply by looking at
+
+* the error
+* the history
+* the anticipated short term future
+
