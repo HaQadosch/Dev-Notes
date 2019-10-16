@@ -58,7 +58,7 @@ ___
 It's important that reducers return a **new** state object (and not mutate the old one) so that your components will re-render when something changes.
 Don't _set_ state values in reducers - only ever return a new state object with changed values.
 
-![7](../assets/7.jpg "Shape of a reducer")
+![8](../assets/8.jpg "No mutation")
 
 ___
 ### Dispatch, with a vengeance
