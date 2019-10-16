@@ -59,7 +59,7 @@ It's important that reducers return a **new** state object (and not mutate the o
 Don't _set_ state values in reducers - only ever return a new state object with changed values.
 
 
-![8](../assets/8.jpg "Don't mutate")
+! - ![8](../assets/8.jpg "Don't mutate bis")
 
 ![8](../assets/8.jpg "Don't mutate")
 
