@@ -186,3 +186,7 @@ Begin/End instead of Left/Right
    2. max-content
    3. fr unit
    4. minmax()
+9. Questions are:
+   1.  What happens when parts of the content/interface is missing
+   2.  shorter/longer than ideal
+10. Creativity

@@ -109,9 +109,94 @@ export function Posts() {
 We do this via context.
 
 ### context.provider
-in `State.tsx`
 
+Barebone example:
+
+First we have to create the React Context itself which gives you access to a `Provider` and a  `Consumer` component.
+You can pass an initial value; it can be null too.
+```js
+// ThemeContext.js
+import React from 'react'
+
+export const ThemeContext = createContext()
+```
+
+Now the _component P_ would have to provide the context with the given Provider component. The value passed can be anything from fetched data,
+component state ot props. The component P only displays component D and doesn't pass any props to it. 
+```js
+// ComponentP.js
+import React from 'react'
+import { ThemeContext } from './ThemeContext'
+
+export const P = () => {
+  <ThemeContext.Provider value={green}>
+    <D />
+  </ThemeContext.P>
+}
+```
+
+What it does instead is to make the value **green** available to all its children and their children, ..., via a Consumer.
+
+Component C is somewhere in the children tree of Component P. It derives its style by consuming the context.
+```js
+// ComponentC.js
+import React from 'react'
+import { ThemeContext } from './ThemeContext'
+
+export const C = () => {
+  <ThemeContext.Consumer>
+    { value => (
+      <p style={{ color: value }}> Hello World </p>
+    )}
+  </ThemeContext.Consumer>
+}
+```
+---
+### Context Hook: useContext
+
+The context component is being created the same way:
+```js
+// ThemeContext.jsx
+import React from 'react`
+
+export const ThemeContext = createContext()
+```
+
+As is the Provider
 ```jsx
+// ComponentP.jsx
+import React from 'react'
+import ThemeContext from './ThemeContext'
+
+export const C = () => {
+  <ThemeContext.Provider value="green">
+    <D />
+  </ThemeContext.Provider>
+}
+```
+
+The Consumer is the component using the Hook to access the value passed by the Provider.
+```jsx
+// ComponentC.jsx
+import React, { useContext } from 'react'
+import ThemeContext from './ThemeContext'
+
+export const C = () => {
+  const color = useContext(ThemeContext)
+
+  return (
+    <p style={{ color }}>
+      Yo.
+    </p>
+  )
+}
+```
+
+---
+Bigger expample using a Store.
+
+```javascript
+// State.tsx
 import React, { createContext, useReducer } from "react";
 
 let AppContext = createContext();
@@ -150,7 +235,7 @@ export { AppContext, AppContextProvider, AppContextConsumer };
 
 ### context.consumer
 
-```jsx
+```javascript
 import React, { useContext } from 'react';
 import { IonButton } from '@ionic/react';
 import { AppContext } from '../State';
