@@ -151,15 +151,52 @@ export const C = () => {
   </ThemeContext.Consumer>
 }
 ```
-
+---
 ### Context Hook: useContext
 
+The context component is being created the same way:
+```js
+// ThemeContext.jsx
+import React from 'react`
 
+export const ThemeContext = createContext()
+```
+
+As is the Provider
+```jsx
+// ComponentP.jsx
+import React from 'react'
+import ThemeContext from './ThemeContext'
+
+export const C = () => {
+  <ThemeContext.Provider value="green">
+    <D />
+  </ThemeContext.Provider>
+}
+```
+
+The Consumer is the component using the Hook to access the value passed by the Provider.
+```jsx
+// ComponentC.jsx
+import React, { useContext } from 'react'
+import ThemeContext from './ThemeContext'
+
+export const C = () => {
+  const color = useContext(ThemeContext)
+
+  return (
+    <p style={{ color }}>
+      Yo.
+    </p>
+  )
+}
+```
 
 ---
-in `State.tsx`
+Bigger expample using a Store.
 
 ```javascript
+// State.tsx
 import React, { createContext, useReducer } from "react";
 
 let AppContext = createContext();
