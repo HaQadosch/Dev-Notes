@@ -203,3 +203,58 @@ export const App: React.FC = () => {
   );
 }
 ```
+
+# Patches and InversPatches
+
+```js
+// lib.ts
+import produce, { Draft, produceWithPatches } from 'immer'
+
+const giftsRecipe = (draft: Draft<IState>, action: { type: string, payload?: any }) => {
+  switch (action.type) {
+    case "ADD_BOOK": {
+      // Doing Stuff
+    }
+      break
+    case "TOGGLE_RESERVATION": {
+      // Doing Stuff
+    }
+      break
+    case "ADD_GIFT": {
+      // Doing Stuff
+    }
+      break
+    case "RESET":
+      // Stuff
+  }
+}
+
+// curState, action => [newState, patches, inversePatches]
+export const patchGeneratingGiftReducer = produceWithPatches(giftsRecipe)
+
+```
+
+# Compress patches
+
+```js
+import { produceWithPatches, applyPatches, Draft, Patch } from 'immer'
+
+let history: Patch[] = []
+
+function whenActionsHappen (patches) {
+  history.push(...JSON.parse(patches))
+}
+
+function compressHistory (currentPatches: Patch[]) {
+  const [, patches] = produceWithPatches(initialState, (draft: Draft<{ gifts: IGifts }>): { gifts: IGifts } => {
+    return applyPatches(draft, currentPatches)
+  })
+  console.log(`compressed from ${ currentPatches.length } to ${ patches.length } patches.`)
+  return patches
+}
+
+// We compress regularly.
+setInterval(() => {
+  history = compressHistory(history)
+}, 5000)
+```

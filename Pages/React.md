@@ -1,5 +1,9 @@
 # React
 
+# Do's and Dont's
+
+* never use the index as key or way to identify anything, it's always a bad idea. Rather use a proper id. The index of an element might change in a list, by push or unshift which changes the order of the elements in the list. Synchronisation between lists might not be the same between clients if you have a race condition. You _could_ always sort you list as well but that could end up being more work than just using proper id. 
+
 # Pattern
 
 The patterns are here to help resolve 3 common situations:
