@@ -13,3 +13,7 @@ https://code.jsoftware.com/wiki/Vocabulary/Loopless
 
 ## Lenses
 https://medium.com/javascript-scene/lenses-b85976cb0534
+
+# Event Driven - Reactive Programming
+Basis for serveless backend app development. 
+Lambda with Node runtime.

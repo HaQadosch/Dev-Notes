@@ -59,3 +59,33 @@ Functions are executed without a default output device, _headless environment_, 
 
 ---
 
+Back end serverless application, each lambda is associated with a resource management role, via **AIM**.
+Each interaction is described by the relationship between the resources involved.
+The design is simplified from a top down orchestration to a bottom-up choreography.
+
+The serverless backend is an **event driven application** that takes advantage of all the best practices from distributed systems:
+  * Avoid synchronous transactions across multiple resources
+  * Design each function to work independently
+    * Via Event Subscriptions
+    * With eventual consistency of Data
+      * Data is not in sync across all resources used by the back end
+      * The data will eventually converge over time to the last updated stage.
+
+
+`Invoke API` is a lambda API handling the synchronous or asynchronous call of lambdas.
+  1. Run the security check,
+  2. Check permission to invoke the lambda are met
+  3. Amazon Cognito creates temporary AWS credentials that allow you to execute
+
+A lambda can also be called directly by a call to its full URL.
+
+The `Amazon API Gateway` add: 
+  * caching results capabilities
+  * throttlintg
+  * managing developer keys
+  * generate SDKs
+
+It allows a layer between the app and the lambdas.
+
+
+
