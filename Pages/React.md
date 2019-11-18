@@ -49,6 +49,14 @@ const Input ({ theme, ...props }: IProps) => (
 />
 ```
 
+# Passing data around
+## Prop drilling
+## Context API
+## Composition
+https://youtu.be/3XaXKiXtNjw 
+## Redux
+
+
 ### Passing a component as props
 
 ```javascript
@@ -295,12 +303,6 @@ const Toggle = ({ children, onToggle }) => {
 ```
 
 ## Authentication
-## HOC
-
-# Passing data around
-## Prop drilling
-## Redux
-## Context API
 
 
 ## Autosave
