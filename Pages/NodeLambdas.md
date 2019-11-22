@@ -96,7 +96,7 @@ It allows a layer between the app and the lambdas.
 4. Click `Create function`
 5. No template, Choose `Author from scratch`
    1. Name: xb_greetingsOnDemand
-   2. Runtime: nodejs 10.x
+   2. Runtime: nodejs 12.x
    3. Click create function
 6. Choose a trigger. Since we'll be calling the lambda directly, no need of a trigger. Skip.
 7. Description: Returns greetings when you ask for them.
