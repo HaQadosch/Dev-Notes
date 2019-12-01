@@ -132,6 +132,15 @@ constainer {
   justify-content: center;
 }
 ```
+## Centering an Image
+
+```css
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+```
 
 
 ## Display: block
