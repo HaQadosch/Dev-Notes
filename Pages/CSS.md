@@ -90,9 +90,9 @@ select {
 The order of the element should be like the below:
 
   1. Box (position, display, width, margin, etc.)
-  2. Text
+  2. Border
   3. Background
-  4. Border
+  4. Text
   5. Other (Alphabetically)
 
 # Minimal setting
@@ -121,7 +121,6 @@ constainer {
 If the container is `main`
 ``` css
   margin: auto;
-
 ```
 is all you need as `main` is a block element.
 
@@ -149,7 +148,11 @@ img {
 
 ## Display: grid
 
+
+
 ### Implicit vs Explicit
+
+
 ### Rows **and** Columns
 
 # Bleed an elt over another
@@ -199,3 +202,7 @@ Begin/End instead of Left/Right
    1.  What happens when parts of the content/interface is missing
    2.  shorter/longer than ideal
 10. Creativity
+
+# Neumorphism
+
+![1](../assets/neumorphism.jpeg "The new skeuomorphism trend")
