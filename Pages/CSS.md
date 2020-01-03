@@ -108,27 +108,25 @@ main {
 
 # Centering Elt in the page
 
+It’s worth noting that both of these techniques require the parent to have at least some height to work with. That’s why it's assumed there is some `min-height` set up, like `min-height: 100vh;`.
+
+
 ``` css
-constainer {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.constainer {
+  display: grid;
+  place-items: center;
 }
 ```
 
-If the container is `main`
-``` css
-  margin: auto;
-```
-is all you need as `main` is a block element.
+As this is a grid, only the direct descendants will be centered.
+To center *all* the childrens, 
+```css
+.container {
+  display: flex;
+}
 
-Within a grid cell
-``` css
-constainer {
-  align-items: center;
-  justify-content: center;
+.container > *:only-child {
+  margin: auto;
 }
 ```
 ## Centering an Image
