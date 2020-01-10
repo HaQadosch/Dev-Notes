@@ -76,7 +76,7 @@ Now, after the snippet tokens have been replaced, the cursor will be positioned 
 {
 	"React Functional Component": {
 		"scope": "typescriptreact",
-		"prefix": "xbrfc",
+		"prefix": "rfc",
 		"body": [
 			"import React from 'react'",
 			"",
@@ -95,5 +95,26 @@ Now, after the snippet tokens have been replaced, the cursor will be positioned 
 		],
 		"description": "Create new React FC based on the filename"
 	},
+}
+```
+
+1. Create a new file called `Test.tsx`
+2. in the file start typing the prefix `rfc` and expand
+3. the snippet will insert automatically
+
+```js
+import React from 'react'
+
+interface ITest {
+  
+}
+
+export const Test: React.FC<ITest> = () => {
+
+  return (
+    <div>
+
+    </div>
+  )
 }
 ```
