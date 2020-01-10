@@ -135,7 +135,7 @@ export const Inner: React.FC<IInnerProps> = () => (
 
 # Implementation with React
 
-We will be using the [Redux Starter Kit](https://redux-starter-kit.js.org/) as it simplify the process and reduces the boilerplate in the simple cases.
+We will be using the [Redux Toolkit](https://redux-toolkit.js.org) as it simplify the process and reduces the boilerplate most of the times.
 
 ## The Store
 
