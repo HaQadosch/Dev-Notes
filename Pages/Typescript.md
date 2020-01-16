@@ -1,6 +1,6 @@
 # Typescript
 
-# Only allow specific keys on an object
+## Only allow specific keys on an object
 
 ``` typescript
 type TListenerTypes = 'onload' | 'progress' | 'error';
@@ -11,7 +11,33 @@ type TListeners = Record<TListenerTypes, React.MouseEventHandler>;
 type TListeners = Record<TListenerTypes, ((e: Event) => void)>;
 ```
 
+## Object containing at least a specific key
 
+For example an object with a `Id` that is either a string or a number.
+It's an extension of a `generic` type. 
+
+```typescript
+// <T> => <T extends { id: React.ReactText }>
+function isIn<T extends { id: React.ReactText }> ({ id }: T): boolean
+```
+
+## Add to prototype
+
+It's a [global augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#global-augmentation)
+
+
+```typescript
+declare global {
+  interface Array<T extends { id: React.ReactText }> {
+    isIn: (elt: T) => boolean
+  }
+}
+
+// eslint-disable-next-line
+Array.prototype.isIn = function isIn<T extends { id: React.ReactText }> ({ id }: T): boolean {
+  return (this as T[]).map(({ id }: T) => id).includes(id)
+}
+```
 
 # DON'T
 
