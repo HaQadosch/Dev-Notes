@@ -130,7 +130,7 @@ You can pass an initial value; it can be null too.
 // ThemeContext.js
 import React from 'react'
 
-export const ThemeContext = createContext()
+export const ThemeContext = React.createContext()
 ```
 
 Now the _component P_ would have to provide the context with the given Provider component. The value passed can be anything from fetched data,
