@@ -65,7 +65,7 @@ Implementation with Redux:
    3. Handle all the cases in your **update**. *Define all the actions in your reducer*
 
 ### Async events
-https://guide.elm-lang.org/effects/http.html
+https://guide.elm-lang.org/effects/http.htmlgit
 
 ___
 ### Reducer
