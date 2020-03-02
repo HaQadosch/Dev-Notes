@@ -25,6 +25,8 @@ How do you adapt the Flux architecture with hot reloading? You need:
     * detect change
     * record old state
 
+You end up with a tool that join Flux architecture and the Elm architecture.
+
 You can:
 
   * Preserve the state
@@ -39,6 +41,32 @@ Implementation with Redux:
   4. Create the action that send new data to the store
   5. Create a CTA that triggers the dispatch action
   6. Create the reducer that change the state according to the action dispatched
+
+
+## Elm architecture:
+### User interaction
+
+![buttons](../assets/buttons.svg "Elm Architecture")
+
+  * Model — the state of your application
+  * View — a way to turn your state into HTML
+  * Update — a way to update your state based on messages
+
+1. Elm starts by rendering the initial value on screen. From there you enter into this loop:
+   1. Wait for user input.
+   2. Send a message to update
+   3. Produce a new Model
+   4. Call view to get new HTML
+   5. Show the new HTML on screen
+   6. Repeat!
+2. How to work with the ELm architecture
+   1. Guess what the **model** should be. *Shape of the data in the store*
+   2. Create a **view** based on your model. *React Component using the select hook*
+   3. Handle all the cases in your **update**. *Define all the actions in your reducer*
+
+### Async events
+https://guide.elm-lang.org/effects/http.html
+
 ___
 ### Reducer
 Your state lives in a central/global Redux store. 
@@ -203,3 +231,9 @@ const App: React.FC<IApp> = () => (
 Now that the store is availbale the components (MyFancyPony and its children) need to connect to the store.
 
 # Testing the Store
+
+# Best practices
+
+1. Do not store derived states. If `a=10` is store, don't store `b=a+1`
+   1. compute them in the View
+2. 
