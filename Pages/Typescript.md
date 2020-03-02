@@ -1,6 +1,6 @@
 # Typescript
 
-# Only allow specific keys on an object
+## Only allow specific keys on an object
 
 ``` typescript
 type TListenerTypes = 'onload' | 'progress' | 'error';
@@ -11,9 +11,45 @@ type TListeners = Record<TListenerTypes, React.MouseEventHandler>;
 type TListeners = Record<TListenerTypes, ((e: Event) => void)>;
 ```
 
+## Object containing at least a specific key
 
+For example an object with a `Id` that is either a string or a number.
+It's an extension of a `generic` type. 
+
+```typescript
+// <T> => <T extends { id: React.ReactText }>
+function isIn<T extends { id: React.ReactText }> ({ id }: T): boolean
+```
+
+## Add to prototype
+
+It's a [global augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#global-augmentation)
+
+
+```typescript
+declare global {
+  interface Array<T extends { id: React.ReactText }> {
+    isIn: (elt: T) => boolean
+  }
+}
+
+// eslint-disable-next-line
+Array.prototype.isIn = function isIn<T extends { id: React.ReactText }> ({ id }: T): boolean {
+  return (this as T[]).map(({ id }: T) => id).includes(id)
+}
+```
 
 # DON'T
+
+## Don't treat it as a linter.
+  1. type your JS like any JS file
+  2. declare some type on top
+  3. repeat 2. until Typescript is happy
+
+That's how you work with a linter. You end up with some generic definitions, too broad to be useful as you are missing on some implementation details and assistance from the TS engine.
+
+You should try and use the closest definition possible, and write them as you write your JS code.
+
 ## Don't use any
 If you happen not to know the exact type, you can use `unknown` type – which is similar to `any`, but it doesn't allow code to escape the TypeScript type system.
 `unknown` is the type-safe counterpart of `any`.
@@ -49,4 +85,5 @@ const handleSubmit: React.FormEvent<HTMLFormEvent> = (): void => {
 ```
 
 # links
-https://basarat.gitbooks.io/typescript/content/docs/jsx/react.html
+  * https://basarat.gitbooks.io/typescript/content/docs/jsx/react.html
+  * https://thoughtbot.com/blog/javascript-type-systems-are-not-linters 

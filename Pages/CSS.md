@@ -90,9 +90,9 @@ select {
 The order of the element should be like the below:
 
   1. Box (position, display, width, margin, etc.)
-  2. Text
+  2. Border
   3. Background
-  4. Border
+  4. Text
   5. Other (Alphabetically)
 
 # Minimal setting
@@ -108,28 +108,34 @@ main {
 
 # Centering Elt in the page
 
+It’s worth noting that both of these techniques require the parent to have at least some height to work with. That’s why it's assumed there is some `min-height` set up, like `min-height: 100vh;`.
+
+
 ``` css
-constainer {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.constainer {
+  display: grid;
+  place-items: center;
 }
 ```
 
-If the container is `main`
-``` css
+As this is a grid, only the direct descendants will be centered.
+To center *all* the childrens, 
+```css
+.container {
+  display: flex;
+}
+
+.container > *:only-child {
   margin: auto;
-
+}
 ```
-is all you need as `main` is a block element.
+## Centering an Image
 
-Within a grid cell
-``` css
-constainer {
-  align-items: center;
-  justify-content: center;
+```css
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
 }
 ```
 
@@ -140,7 +146,11 @@ constainer {
 
 ## Display: grid
 
+
+
 ### Implicit vs Explicit
+
+
 ### Rows **and** Columns
 
 # Bleed an elt over another
@@ -190,3 +200,9 @@ Begin/End instead of Left/Right
    1.  What happens when parts of the content/interface is missing
    2.  shorter/longer than ideal
 10. Creativity
+
+# Neumorphism
+
+![1](../assets/neumorphism.jpeg "The new skeuomorphism trend")
+
+[generating the card](https://neumorphism.io/#EFEEEE)

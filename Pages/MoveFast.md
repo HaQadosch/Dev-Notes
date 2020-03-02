@@ -8,11 +8,11 @@
 
 Use easy framework/library/toolset that are ideal to iterate quickly.
   * Node
-  * React (Svelte?)
+  * React (ReasonML?)
   * GraphQL
   * Service Workers
   * Serveless deployment
-  
+
 Increasing the development iteration speed help grow the confidence of the dev team.
 To do that, avoid specific knowledge (stay close to the standards) and manual process.
 
@@ -57,7 +57,8 @@ It helps detect slow tools.
 Maybe try rollup ?
 
 ### CSS modules
-Remove css modules. CSS-in-JS allow for faster build time (need to be tested) .
+Remove css modules. CSS-in-JS allow for faster build time (need to be tested).
+[nldr: _I challenge that though_]
 
 ### React Component Benchmarks
 
@@ -90,6 +91,15 @@ class ErrorBoundary extends React.Component {
     logErrorToMyReportService(error, extradata, info)
   } 
 }
+
+ReactDOM.render(
+  <React.StrictMode>
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
+  </React.StrictMode>,
+  document.getElementById('root')
+)
 ```
 
 
