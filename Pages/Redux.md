@@ -10,6 +10,35 @@ This lets you access or change your state from **any** component in your tree.
 * `react-redux` lets you connect pieces of the states to the React components.
 
 ![1](../assets/1.jpg "Store dictates the state of the app")
+
+
+It's been implemented to solve the pbms of Hot reloading with Time Travel. That means:
+
+  * Repeat the actions
+  * Reproduce the states:
+    * No matter how you come to the state X
+    * the UI always look the same in state X
+
+How do you adapt the Flux architecture with hot reloading? You need:
+
+  * Immutable data
+    * detect change
+    * record old state
+
+You can:
+
+  * Preserve the state
+  * Recover from errors
+    * Switching to the previous state before errorring
+
+Implementation with Redux:
+
+  1. Add some mock data in the store
+  2. Display them
+  3. Create the initial state for the app
+  4. Create the action that send new data to the store
+  5. Create a CTA that triggers the dispatch action
+  6. Create the reducer that change the state according to the action dispatched
 ___
 ### Reducer
 Your state lives in a central/global Redux store. 
