@@ -67,6 +67,116 @@ Implementation with Redux:
 ### Async events
 https://guide.elm-lang.org/effects/http.htmlgit
 
+## Redux
+
+Redux at its core is a
+> change event emitter holding a value
+
+```js
+let listeners = []
+let state;
+
+function reducer(state, action) {
+  return action(state)
+}
+
+function subscribe(listener) {
+  listeners.push(listener)
+  return function unsubscribe() {
+    listeners = listeners.filter(cand => cand !== listener)
+  }
+}
+
+function getState() {
+  return state
+}
+
+function dispatch(action) {
+  state = reducer(state, action)
+  listeners.slice().forEach(foo => foo())
+  return action
+}
+```
+
+Constraints:
+
+* Single state tree, an object
+* Actions describe updates, an object
+* Reducers apply updates, a function
+
+Features:
+
+* Debug workflow
+  * Log actions and states, they are objects
+  * A bad UI means bad states, find the bad state
+  * Check the action, objects are human readable
+  * Fix the reducer, the only place where behavior is being implemented
+  * Write a test, don't need to render, don't need to mock
+* Everything is data
+  * Persistence, store state as a json
+  * Universal rendering, the state can be created server side and sent to the FE
+  * Recording user sessions
+  * Optimistic mutations, we can cancel wrong state and remove it from the state tree
+  * Collaborative editing
+
+Contract (the rest of the API the user has to code):
+
+* Reducers
+  * `(state, action) => state`
+  * how the state updates
+  * composable, a reducer can call a reducer
+  * HOC reducers.
+     * supercharge reducers, with internal states, ...
+        ```js
+        const undoable = reducer => {
+          const initState = {
+            past: [],
+            present: reducer(undefined, {})
+          }
+          return (action, {past, present} = initState) => {
+            if (action.type === 'UNDO') {
+              return {
+                past: past.slice(0, -1),
+                present: past[past.length - 1]
+              }
+            }
+            return {
+              past: [...past, present],
+              present: reducer(present, action)
+            }
+          }
+        }
+        ```
+      * reusable with any reducers, make it a package
+* Selectors
+  * `(state, ...args) => derivation`
+  * a derived state, filtered down, more useful for the UI
+  * keep the Reducers and the Selectors working on the same state in the same file.
+     * if the state is being modified, the relevant selectors are there as well
+* Middleware
+  * `store => next => action => any`
+    ```js
+    const promise = store => next => action => {
+      typeof action === 'function'
+        ? action.then(next)
+        : next(action)
+    }
+
+    const logger = store => next => action => {
+      clg({prevState: store.getState()})
+      clg({action})
+      const result = next(action)
+      clg({nextState: store.getState()})
+      return result
+    }
+    ```
+  * abstract actions, can be npm'ed
+* Enhancers
+  * `createStore => createStore`
+    * memoization
+    * optimistic state
+    * app sheel and offline loading => you can put the store in a service worker
+
 ___
 ### Reducer
 Your state lives in a central/global Redux store. 
