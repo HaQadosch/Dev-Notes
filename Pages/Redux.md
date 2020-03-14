@@ -273,30 +273,30 @@ a `Context` is a conduit/channel between the `Provider` and all the `Consumers`.
 
 ```tsx
 // Source.tsx
-export const Source = React.createContext()
+export const SourceContext = React.createContext()
 
 // Outer.tsx
-import { Source } from './Source'
+import { SourceContext } from './Source'
 import { Inner } from './Inner'
 
-const Outer: React.FC<IOuterProps> = () => ( 
+const Outer: React.FC<IOuterProps> = () => (
+  const usefulData = ...
+
   <main>
-    <Source.Provider value={usefulData}>
+    <SourceContext.Provider value={usefulData}>
       <Inner />
-    </Source.Provider>
+    </SourceContext.Provider>
   </main>
 )
 
 // Inner.tsx
-import { Source } from './Source'
+import { SourceContext } from './Source'
 
-export const Inner: React.FC<IInnerProps> = () => (
-  <Source.Consumer>
-    {info => ( 
-      <p>A useful piece of {info}</p>
-    )}
-  </Source.Consumer>
-)
+export const Inner: React.FC<IInnerProps> = () => {
+  const { usefuldata: info } = React.useContext(SourceContext)
+  
+  return <p>A useful piece of {info}</p>
+}
 ```
 
 
@@ -310,7 +310,7 @@ Let's make a simple on/off lightbulb. A button will toggle between the 2 states.
 
 ```tsx
 import produce, { Draft } from 'immer';
-import { configureStore, createSlice, EnhancedStore, AnyAction } from 'redux-starter-kit';
+import { configureStore, createSlice, EnhancedStore, AnyAction } from '@reduxjs/toolkit';
 
 enum SwichState {
   Off,
