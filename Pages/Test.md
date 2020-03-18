@@ -1,5 +1,7 @@
 # Approach
 
+![1](../assets/testCycle.png "Test Pipeline")
+
 ## Test should be thought of as an optimisation problem
 
 It's about maximising value (confidence in the app working) and minimising cost (time spent maintaining and running tests).
